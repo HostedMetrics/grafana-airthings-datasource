@@ -1,5 +1,5 @@
 import React, {ChangeEvent, PureComponent} from 'react';
-import {Button, FormLabel, Input, Select} from '@grafana/ui';
+import {Button, InlineFormLabel, LegacyForms} from '@grafana/ui';
 import {DataSourcePluginOptionsEditorProps, DataSourceSettings, SelectableValue} from '@grafana/data';
 import {AirthingsJsonData, AirthingsOrganizationId, AirthingsSecureJsonData, AuthType} from '../types';
 
@@ -197,9 +197,9 @@ export class ConfigEditor extends PureComponent<Props, State> {
         <div className="gf-form-group">
           <div className="gf-form-inline">
             <div className="gf-form">
-              <FormLabel className="width-14">Auth Type</FormLabel>
+              <InlineFormLabel className="width-14">Auth Type</InlineFormLabel>
               <div className="width-30">
-                <Select
+                <LegacyForms.Select
                     isSearchable={false}
                     width={15}
                     options={this.AUTH_OPTIONS}
@@ -213,9 +213,9 @@ export class ConfigEditor extends PureComponent<Props, State> {
 
           <div className="gf-form-inline">
             <div className="gf-form">
-              <FormLabel className="width-14">Client ID</FormLabel>
+              <InlineFormLabel className="width-14">Client ID</InlineFormLabel>
               <div className="width-30">
-                <Input
+                <LegacyForms.Input
                   className="width-30"
                   value={config.jsonData.clientID || ''}
                   onChange={(event: ChangeEvent<HTMLInputElement>) => this.onClientIDChange(event.target.value)}
@@ -226,8 +226,8 @@ export class ConfigEditor extends PureComponent<Props, State> {
           {config.secureJsonFields.clientSecret ? (
             <div className="gf-form-inline">
               <div className="gf-form">
-                <FormLabel className="width-14">Client Secret</FormLabel>
-                <Input className="width-25" placeholder="Configured" disabled={true} />
+                <InlineFormLabel className="width-14">Client Secret</InlineFormLabel>
+                <LegacyForms.Input className="width-25" placeholder="Configured" disabled={true} />
               </div>
               <div className="gf-form">
                 <div className="max-width-30 gf-form-inline">
@@ -240,9 +240,9 @@ export class ConfigEditor extends PureComponent<Props, State> {
           ) : (
             <div className="gf-form-inline">
               <div className="gf-form">
-                <FormLabel className="width-14">Client Secret</FormLabel>
+                <InlineFormLabel className="width-14">Client Secret</InlineFormLabel>
                 <div className="width-30">
-                  <Input
+                  <LegacyForms.Input
                     className="width-30"
                     value={config.secureJsonData.clientSecret || ''}
                     onChange={(event: ChangeEvent<HTMLInputElement>) => this.onClientSecretChange(event.target.value)}

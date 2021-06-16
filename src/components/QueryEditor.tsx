@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {ExploreQueryFieldProps, SelectableValue} from '@grafana/data';
-import {FormLabel, Select} from '@grafana/ui';
+import {InlineFormLabel, LegacyForms} from '@grafana/ui';
 import {
   AirthingsQuery,
   AirthingsQueryResolution,
@@ -225,8 +225,8 @@ export class QueryEditor extends PureComponent<Props, State> {
     return (
         <>
           <div className="gf-form-inline">
-            <FormLabel width={10}>Organization</FormLabel>
-            <Select
+            <InlineFormLabel width={10}>Organization</InlineFormLabel>
+            <LegacyForms.Select
                 isSearchable={false}
                 width={15}
                 value={this.getOrganizationOption()}
@@ -236,8 +236,8 @@ export class QueryEditor extends PureComponent<Props, State> {
             />
             { QUERYTYPE_OPTIONS.length > 1 &&
                 <span>
-                    <FormLabel width={10}>Type</FormLabel>
-                    <Select
+                    <InlineFormLabel width={10}>Type</InlineFormLabel>
+                    <LegacyForms.Select
                         isSearchable={false}
                         width={10}
                         value={this.getQueryTypeOption()}
@@ -247,8 +247,8 @@ export class QueryEditor extends PureComponent<Props, State> {
                     />
                 </span>
             }
-            <FormLabel width={10}>Location</FormLabel>
-              <Select
+            <InlineFormLabel width={10}>Location</InlineFormLabel>
+              <LegacyForms.Select
                   isSearchable={false}
                   width={10}
                   value={this.getLocationOption()}
@@ -258,8 +258,8 @@ export class QueryEditor extends PureComponent<Props, State> {
               />
           </div>
           <div className="gf-form-inline">
-            <FormLabel width={10}>{this.props.query.queryType === AirthingsQueryType.Locations ? 'Location' : 'Device'}</FormLabel>
-            <Select
+            <InlineFormLabel width={10}>{this.props.query.queryType === AirthingsQueryType.Locations ? 'Location' : 'Device'}</InlineFormLabel>
+            <LegacyForms.Select
                 isSearchable={false}
                 width={15}
                 value={this.getResourceOption()}
@@ -267,8 +267,8 @@ export class QueryEditor extends PureComponent<Props, State> {
                 onChange={this.onResourceChanged}
                 className="gf-form-select"
             />
-            <FormLabel width={10}>Sensor</FormLabel>
-            <Select
+            <InlineFormLabel width={10}>Sensor</InlineFormLabel>
+            <LegacyForms.Select
                 isSearchable={false}
                 width={10}
                 value={this.getSensorTypeOption()}
@@ -278,15 +278,15 @@ export class QueryEditor extends PureComponent<Props, State> {
             />
           </div>
           <div className="gf-form-inline">
-            <FormLabel width={10}>Format</FormLabel>
-            <Select
+            <InlineFormLabel width={10}>Format</InlineFormLabel>
+            <LegacyForms.Select
               isSearchable={false}
               width={15}
               options={FORMAT_OPTIONS}
               onChange={this.onFormatChange} value={this.getFormatOption()}
             />
-            <FormLabel width={10}>Resolution</FormLabel>
-            <Select
+            <InlineFormLabel width={10}>Resolution</InlineFormLabel>
+            <LegacyForms.Select
               isSearchable={false}
               width={10}
               options={RESOLUTION_OPTIONS}
